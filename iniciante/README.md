@@ -1,5 +1,4 @@
-# Formulários
-Formulário nível iniciante (acrescentado responsividade) para mobile, telas médias, grandes e TV's.
+# Formulário Iniciante
 
 <h1>CRIE SEU EVENTO</h1>
 
