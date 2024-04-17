@@ -6,4 +6,4 @@
 
 Formulário para preenchimento de agendamento para monitorias.
 
-<p align="right">Provided by Nando</p>
+<p  align="right">:)</p>

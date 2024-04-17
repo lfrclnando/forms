@@ -6,4 +6,4 @@
 
 Formulário para preenchimento de inscrição para seu evento.
 
-<p align="right">Provided by Nando</p>
+<p  align="right">:)</p>
