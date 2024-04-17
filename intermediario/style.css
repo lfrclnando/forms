@@ -42,7 +42,7 @@ body::before {
 }
 
 .page {
-  width: 1440px;
+  width: 750px;
   margin: auto;
 }
 
@@ -53,18 +53,14 @@ header {
 
 header h1 {
   font: var(--myheader-title-font);
-  /* font-weight: bold;
-  font-size: 36px;
-  line-height: 42px; */
+  
   color: white;
   margin-bottom: 18px;
 }
 
 header p {
   font: var(--myheader-subtitle-font);
-  /* font-size: 20px;
-  line-height: auto; */
-
+ 
   color: white;
 }
 
@@ -72,7 +68,7 @@ form {
   margin-top: 58px;
   background: #FAFAFC;
   border-radius: 8px 8px 0 0;
-  min-height: 1084px;
+  min-height: 300px;
 
   padding: 64px;
 
@@ -93,31 +89,25 @@ fieldset {
 
 fieldset legend {
   font: var(--myfieldset-legend-font);
-  /* font-weight: 600;
-  font-size: 24px;
-  line-height: 34px; */
-
   width: 100%;
 
   border-bottom: 1px solid #E6E6F0;
-  padding-bottom: 8px;
+  padding-bottom: 16px;
 }
 
 .input-wrapper-name-complete {
   display: flex;
   flex-direction: row;
-  gap: 275px;
+  gap: 22px;
+
 }
+
 .label-wrapper-name {
   display: flex;
- 
-  gap: 22px;
 }
 
 .input-wrapper-name {
-  display: flex;
   width: 300px;
-  gap: 22px;
 }
 
 .input-wrapper {
@@ -126,12 +116,9 @@ fieldset legend {
 }
 
 .input-wrapper label {
-  /* font-size: 14px;
-  line-height: 24px; */
+  margin-bottom: 8px;
 
   color: #4E4958;
-
-  margin-bottom: 8px;
 }
 
 .input-wrapper label span {
@@ -140,7 +127,6 @@ fieldset legend {
   font-size: 12px;
   line-height: 20px;
 
-  /* color: #C1BCCC; */
   color: #6e6879;
 }
 
@@ -166,19 +152,12 @@ fieldset legend {
 
 .col-3 {
   display: flex;
-  /* flex-direction: column; */
   gap: 20px;
 }
-
-/* .col-3>div:nth-child(1) {
-  display: flex;
-  flex-direction: row;
-} */
 
 .col-3>div:nth-of-type(2) {
   width: 100%;
 }
-
 
 footer {
   background: #535971;
@@ -204,11 +183,6 @@ footer .button {
 
   font: var(--mybutton-font);
 
-  /* font-size: 16px;
-  font-weight: 600;
-  line-height: 26px; */
-
-
   color: #FFFFFF;
 }
 
@@ -226,11 +200,15 @@ input:invalid {
     width: 600px;
     margin: auto;
   }
+
+  .input-wrapper-name {
+    width: 100%;
+  }
 }
 
 @media (max-width: 426px) {
-
   header {
+    width: 300px;
     padding: 0 24px;
   }
 
@@ -255,9 +233,22 @@ input:invalid {
     font-size: 20px;
   }
 
-  .input-wrapper label,
-  .checkbox-wrapper label {
+  .input-wrapper label {
     font-size: 10px;
+  }
+
+  .input-wrapper-name-complete {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .label-wrapper-name {
+    display: flex;
+  }
+
+  .input-wrapper-name {
+    width: 100%;
   }
 
   .input-wrapper label span {
@@ -265,10 +256,7 @@ input:invalid {
     line-height: 16px;
   }
 
-  .input-wrapper input,
-  .input-wrapper textarea,
-  .input-wrapper select {
-
+  .input-wrapper input {
     padding: 0 24px;
 
     font-size: 12px;
@@ -279,30 +267,5 @@ input:invalid {
     flex-direction: column;
     gap: 16px;
   }
-
-  .checkbox-wrapper label {
-    gap: 12px;
-    margin: 0;
-  }
-
-  .checkbox-wrapper input {
-    width: 20px;
-    height: 20px;
-  }
-
-  .checkbox-wrapper label::before {
-    content: '';
-    width: 20px;
-    height: 20px;
-  }
-
-  .checkbox-wrapper input:checked+label::before {
-    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.00016 16.1698L4.83016 11.9998L3.41016 13.4098L9.00016 18.9998L21.0002 6.99984L19.5902 5.58984L9.00016 16.1698Z' fill='%2342D3FF'/%3E%3C/svg%3E%0A");
-  }
-
-  .checkbox-wrapper input:focus+label::before {
-    outline: 1px solid black;
-  }
 }
-
 /**FIM DO MEDIA QUERIES*/
