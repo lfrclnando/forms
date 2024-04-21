@@ -3,14 +3,20 @@
 
 
 :root {
-  --mydocument: normal 400 14px/24px "Poppins", sans-serif;
+  font-size: 62.5%;
+  /* 10px */
+  /* Cálculo para padronizar acessividade com a propriedade rem */
 
-  --myheader-title-font: normal 400 48px "Staatliches", sans-serif;
-  --myheader-subtitle-font: normal 400 20px "Poppins", sans-serif;
+  --mydocument: normal 400 14px/2.4rem "Poppins", sans-serif;
 
-  --myfieldset-legend-font: normal 400 24px/34px "Staatliches", sans-serif;
+  --myheader-title-font: normal 400 3.6rem "Staatliches", sans-serif;
+  --myheader-subtitle-font: normal 400 16px "Poppins", sans-serif;
 
-  --mybutton-font: normal 400 20px/26px "Staatliches", sans-serif;
+  --myinformation-font: normal 400 2.4rem/3.4rem "Staatliches", sans-serif;
+  --myfieldset-legend-font: normal 400 2.4rem/3.4rem "Staatliches", sans-serif;
+
+  --mybutton-font: normal 400 2.0rem/2.6rem "Staatliches", sans-serif;
+
 }
 
 * {
@@ -26,19 +32,19 @@ input {
 }
 
 body {
-  background: #E5E5E5;
+  background: #BFD7E4;
 }
 
 body::before {
   content: '';
   width: 100%;
-  height: 436px;
+  height: 465px;
 
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
-  background: #535971;
+  background: #293241;
 }
 
 .page {
@@ -47,27 +53,41 @@ body::before {
 }
 
 header {
+  text-align: center;
   width: 417px;
-  margin-top: 140px;
+  margin-top: 107px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2px 0;
 }
 
 header h1 {
   font: var(--myheader-title-font);
-  
   color: white;
-  margin-bottom: 18px;
 }
 
 header p {
   font: var(--myheader-subtitle-font);
- 
   color: white;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div h2 {
+  font: var(--myinformation-font);
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 6%;
+
+  color: white;
+  background-color: #F67669;
+  height: 12.4rem;
+  border-radius: 8px 8px 0 0;
 }
 
 form {
-  margin-top: 58px;
-  background: #FAFAFC;
-  border-radius: 8px 8px 0 0;
+  background: #FFFFFF;
   min-height: 300px;
 
   padding: 64px;
@@ -84,12 +104,15 @@ fieldset {
 .fieldset-wrapper {
   display: flex;
   flex-direction: column;
+
   gap: 24px;
 }
 
 fieldset legend {
   font: var(--myfieldset-legend-font);
   width: 100%;
+
+  text-align: center;  
 
   border-bottom: 1px solid #E6E6F0;
   padding-bottom: 16px;
@@ -99,7 +122,6 @@ fieldset legend {
   display: flex;
   flex-direction: row;
   gap: 22px;
-
 }
 
 .label-wrapper-name {
@@ -115,8 +137,12 @@ fieldset legend {
   flex-direction: column;
 }
 
-.input-wrapper label {
+.input-wrapper label,
+.checkbox-wrapper label {
   margin-bottom: 8px;
+
+  font-size: 14px;
+  line-height: 24px;
 
   color: #4E4958;
 }
@@ -134,7 +160,9 @@ fieldset legend {
   color: #6c6a71;
 }
 
-.input-wrapper input {
+.input-wrapper input,
+.input-wrapper textarea,
+.input-wrapper select {
   background: #FAFAFC;
 
   border: 1px solid #E6E6F0;
@@ -150,6 +178,22 @@ fieldset legend {
   color: #6c6a71;
 }
 
+.input-wrapper textarea {
+  padding: 0 16px;
+  height: 168px;
+}
+
+.input-wrapper select {
+  width: 300px;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 10L12 14L16 10' stroke='%239C98A6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: right 24px top 50%;
+}
+
 .col-3 {
   display: flex;
   gap: 20px;
@@ -159,8 +203,48 @@ fieldset legend {
   width: 100%;
 }
 
+.checkbox-wrapper {
+  position: relative;
+}
+
+.checkbox-wrapper label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 0;
+}
+
+.checkbox-wrapper input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+
+  opacity: 0;
+}
+
+.checkbox-wrapper label::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: block;
+
+  border: 1px solid #E6E6F0;
+  border-radius: 8px;
+}
+
+.checkbox-wrapper input:checked+label::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.00016 16.1698L4.83016 11.9998L3.41016 13.4098L9.00016 18.9998L21.0002 6.99984L19.5902 5.58984L9.00016 16.1698Z' fill='%2342D3FF'/%3E%3C/svg%3E%0A");
+}
+
+.checkbox-wrapper input:focus+label::before {
+  outline: 2px solid black;
+}
+
 footer {
-  background: #535971;
+  background: #FFFFFF;
 
   height: 136px;
 
@@ -171,13 +255,12 @@ footer {
 
   margin-bottom: 100px;
 
-  border-top: 1px solid #D6D6D6;
   border-radius: 0 0 8px 8px;
 }
 
 footer .button {
   height: 56px;
-  background: #FF5374;
+  background: #F67669;
   border: 0;
   border-radius: 8px;
 
@@ -197,7 +280,7 @@ input:invalid {
 /** MEDIA QUERIES */
 @media (max-width: 990px) {
   .page {
-    width: 600px;
+    width: 60rem;
     margin: auto;
   }
 
@@ -208,17 +291,17 @@ input:invalid {
 
 @media (max-width: 426px) {
   header {
-    width: 300px;
-    padding: 0 24px;
+    width: 30rem;
+    padding: 0 2.4rem;
   }
 
   .page {
-    width: 300px;
+    width: 30rem;
     margin: auto;
   }
 
   header h1 {
-    font-size: 32px;
+    font-size: 3.2rem;
   }
 
   header p {
@@ -226,21 +309,34 @@ input:invalid {
   }
 
   form {
-    padding: 32px;
+    padding: 3.2rem;
   }
 
   fieldset legend {
-    font-size: 20px;
+    font-size: 2rem;
   }
 
   .input-wrapper label {
     font-size: 10px;
   }
 
+  .checkbox-wrapper label {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+  }
+
+  .input-wrapper label span {
+    font-size: 8px;
+    line-height: 16px;
+
+    margin-left: 0;
+  }
+  
   .input-wrapper-name-complete {
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 2.2rem;
   }
 
   .label-wrapper-name {
@@ -251,21 +347,21 @@ input:invalid {
     width: 100%;
   }
 
-  .input-wrapper label span {
-    font-size: 8px;
-    line-height: 16px;
-  }
 
-  .input-wrapper input {
-    padding: 0 24px;
+  .input-wrapper input,
+  .input-wrapper textarea,
+  .input-wrapper select {
+    width: 23.6rem;
+    padding: 0 2.4rem;
 
     font-size: 12px;
-    line-height: 22px;
+    line-height: 2.2rem;
   }
 
   .col-3 {
     flex-direction: column;
     gap: 16px;
-  }
+  } 
 }
+
 /**FIM DO MEDIA QUERIES*/
